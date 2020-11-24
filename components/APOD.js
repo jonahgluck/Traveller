@@ -65,7 +65,7 @@ export default function APOD() {
           scrollEnabled={scrollEnabled}
           onContentSizeChange={onContentSizeChange}
         >
-          {state.explanation}{" "}
+          {state.explanation}
         </Text>
       </ScrollView>
     </View>
