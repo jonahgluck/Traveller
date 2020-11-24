@@ -1,11 +1,22 @@
 import React, { useState, useEffect } from "react";
-import { Text, View, Image, StyleSheet, Dimensions } from "react-native";
+import {
+  Text,
+  View,
+  Image,
+  StyleSheet,
+  Dimensions,
+  ScrollView,
+} from "react-native";
 const win = Dimensions.get("window");
+const { height } = Dimensions.get("window");
 import Constants from "expo-constants";
 import axios from "axios";
 
 export default function APOD() {
   const [state, setState] = useState(null);
+  const [stateheight, setStateHeight] = useState({
+    state: { screenHeight: 0 },
+  });
 
   useEffect(() => {
     getAPOD();
@@ -35,6 +46,11 @@ export default function APOD() {
       </View>
     );
 
+  const onContentSizeChange = (contentWidth, contentHeight) => {
+    this.setStateHeight({ screenHeight: contentHeight });
+  };
+
+  const scrollEnabled = stateheight.screenHeight > height;
   return (
     <View style={styles.container}>
       <Text style={styles.paragraph}>{state.title}</Text>
@@ -43,6 +59,15 @@ export default function APOD() {
         style={styles.image}
         resizeMode={"contain"}
       />
+      <ScrollView>
+        <Text
+          style={styles.explanation}
+          scrollEnabled={scrollEnabled}
+          onContentSizeChange={onContentSizeChange}
+        >
+          {state.explanation}{" "}
+        </Text>
+      </ScrollView>
     </View>
   );
 }
@@ -77,5 +102,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginLeft: -15,
     overflow: "hidden",
+  },
+  explanation: {
+    color: "#fff",
+    margin: 24,
+    fontSize: 18,
+    fontWeight: "bold",
+    textAlign: "center",
   },
 });
