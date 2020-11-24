@@ -4,16 +4,15 @@ import { Text, View, StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Home from "./pages/Home";
-import Settings from "./pages/Settings";
+import Launches from "./pages/Launches";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import HomeIcon from "@material-ui/icons/Home";
 
 function HomeScreen() {
   return <Home />;
 }
 
-function SettingsScreen() {
-  return <Settings />;
+function LaunchesScreen() {
+  return <Launches />;
 }
 
 const Tab = createBottomTabNavigator();
@@ -42,18 +41,18 @@ function MyTabs() {
         component={HomeScreen}
       />
       <Tab.Screen
-        name="Settings"
+        name="Launches"
         options={{
-          tabBarLabel: "Settings",
+          tabBarLabel: "Launches",
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons
-              name="account-settings"
+              name="death-star"
               color={"white"}
               size={size}
             />
           ),
         }}
-        component={SettingsScreen}
+        component={LaunchesScreen}
       />
     </Tab.Navigator>
   );

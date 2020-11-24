@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
-    "@material-ui/icons": "^4.9.1",
     "@react-navigation/bottom-tabs": "^5.11.2",
     "@react-navigation/native": "^5.8.10",
     "axios": "^0.21.0",
@@ -17,6 +16,7 @@
     "expo": "~39.0.2",
     "expo-status-bar": "~1.0.2",
     "fs": "^0.0.1-security",
+    "native-base": "^2.13.14",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.4.tar.gz",
