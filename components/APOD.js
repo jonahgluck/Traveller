@@ -8,9 +8,11 @@ import {
   ScrollView,
 } from "react-native";
 const win = Dimensions.get("window");
+import { NASA_KEY } from "../config";
 const { height } = Dimensions.get("window");
 import Constants from "expo-constants";
 import axios from "axios";
+import { config } from "dotenv/types";
 
 export default function APOD() {
   const [state, setState] = useState(null);
@@ -22,7 +24,7 @@ export default function APOD() {
     getAPOD();
   }, []);
 
-  const url = `https://api.nasa.gov/planetary/apod?api_key=${"62yu1ssWmg3CciwxRDrhXq3qs5DS5gzuxNZwxXnl"}`;
+  const url = `https://api.nasa.gov/planetary/apod?api_key=${NASA_KEY}`;
 
   const getAPOD = () => {
     axios
